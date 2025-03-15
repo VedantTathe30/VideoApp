@@ -6,6 +6,7 @@ RUN ls -l target/  # This will show the contents of the target directory
 
 # Run stage
 FROM openjdk:17.0.1-jdk-slim
-COPY --from=build target/VideoApp-0.0.1-SNAPSHOT.jar VideoApp.jar
+COPY target/*.jar app.jar
+
 EXPOSE 9191
 ENTRYPOINT ["java", "-jar", "VideoApp.jar"]
