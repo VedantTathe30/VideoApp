@@ -40,6 +40,7 @@ public class VideoController {
             Video video = existingVideo.get();
             video.setVideoname(updatedVideo.getVideoname());
             video.setLink(updatedVideo.getLink());
+            video.setWebsitelink(updatedVideo.getWebsitelink());
             return ResponseEntity.ok(videoService.saveVideo(video));
         } else {
             return ResponseEntity.notFound().build();
@@ -59,6 +60,7 @@ public class VideoController {
         if (video.isPresent()) {
             Map<String, String> response = new HashMap<>();
             response.put("videoUrl", video.get().getLink());  // Assuming 'link' contains the video URL
+            response.put("websiteUrl", video.get().getWebsitelink());  // Assuming 'link' contains the video URL
             return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.notFound().build();
