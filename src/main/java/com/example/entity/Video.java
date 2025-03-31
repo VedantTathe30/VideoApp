@@ -14,8 +14,10 @@ public class Video {
     private String videoname;
 
     private String link;
-    
+
     private String websitelink;
+
+    private String githublink;
 
 //    @ManyToOne
 //    @JoinColumn(name = "userid", nullable = false)  // Ensuring it's a foreign key reference
@@ -28,10 +30,11 @@ public class Video {
     // Constructors
     public Video() {}
 
-    public Video(String videoname,Long userid, String websitelink) {
+    public Video(String videoname,Long userid, String websitelink, String githublink) {
         this.videoname = videoname;
         this.userId = userid;
         this.websitelink = websitelink;
+        this.githublink = githublink;
     }
 
     // Getters and Setters
@@ -74,6 +77,14 @@ public class Video {
 
     public void setWebsitelink(String websitelink) {
         this.websitelink = websitelink;
+    }
+    
+	public String getGithublink() {
+        return githublink;
+    }
+
+    public void setGithublink(String githublink) {
+        this.githublink = githublink;
     }
     
     

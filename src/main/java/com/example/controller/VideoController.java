@@ -13,7 +13,8 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/videos") 
-@CrossOrigin(origins = "http://localhost:5173")
+//@CrossOrigin(origins = "http://localhost:5173")
+@CrossOrigin(origins = "*")
 public class VideoController {
 
     @Autowired
@@ -41,6 +42,7 @@ public class VideoController {
             video.setVideoname(updatedVideo.getVideoname());
             video.setLink(updatedVideo.getLink());
             video.setWebsitelink(updatedVideo.getWebsitelink());
+            video.setGithublink(updatedVideo.getGithublink());
             return ResponseEntity.ok(videoService.saveVideo(video));
         } else {
             return ResponseEntity.notFound().build();
@@ -60,7 +62,8 @@ public class VideoController {
         if (video.isPresent()) {
             Map<String, String> response = new HashMap<>();
             response.put("videoUrl", video.get().getLink());  // Assuming 'link' contains the video URL
-            response.put("websiteUrl", video.get().getWebsitelink());  // Assuming 'link' contains the video URL
+            response.put("websiteUrl", video.get().getWebsitelink()); // Assuming 'link' contains the video URL
+            response.put("githubUrl", video.get().getGithublink());  // Assuming 'link' contains the video URL
             return ResponseEntity.ok(response);
         } else {
             return ResponseEntity.notFound().build();
