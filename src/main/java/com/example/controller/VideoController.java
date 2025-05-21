@@ -13,8 +13,11 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/videos") 
-//@CrossOrigin(origins = "http://localhost:5173")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = {
+	    "http://localhost:5173",
+	    "https://videoappbyvedant.vercel.app"
+	})
+
 public class VideoController {
 
     @Autowired
